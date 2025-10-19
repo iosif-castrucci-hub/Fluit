@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSV Cleaner — Fluit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body class="antialiased text-slate-900 bg-white">
+  <header class="border-b border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/logo.svg" class="h-7 w-7" alt="Fluit" />
+        <span class="font-semibold">Fluit</span>
+      </a>
+      <a href="/" class="text-sm text-slate-600 hover:text-slate-800">← Torna alla home</a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold tracking-tight">CSV Cleaner</h1>
+    <p class="mt-2 text-slate-600">Carica un CSV e rimuovi duplicati e righe vuote. Riceverai il CSV pulito.</p>
+
+    <form id="form" class="mt-6 space-y-4">
+      <label class="block text-sm font-medium">File CSV</label>
+      <input type="file" id="csvFile" accept=".csv,text/csv" class="w-full rounded-xl border border-slate-300 p-2" />
+      <div class="flex items-center gap-3">
+        <label class="inline-flex items-center gap-2 text-sm"><input type="checkbox" id="dropEmpty" class="rounded"> Rimuovi righe vuote</label>
+        <label class="inline-flex items-center gap-2 text-sm"><input type="checkbox" id="dropDuplicates" class="rounded" checked> Rimuovi duplicati</label>
+      </div>
+      <button type="submit" class="btn-primary">Pulisci CSV</button>
+    </form>
+
+    <div id="outputWrap" class="mt-8 hidden">
+      <h2 class="text-xl font-semibold">Risultato</h2>
+      <div id="result" class="mt-3 text-sm text-slate-600">CSV elaborato. <button id="downloadBtn" class="btn-small-primary ml-2">Scarica</button></div>
+    </div>
+
+    <p class="mt-6 text-xs text-slate-500">Imposta il tuo Webhook n8n nella costante <code>WEBHOOK_URL</code>. Il tool invia il file come Base64.</p>
+  </main>
+
+  <script>
+    // Sostituisci con il tuo Webhook n8n
+    const WEBHOOK_URL = 'https://example.com/webhook/csv-cleaner';
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function postJSON(url, payload) {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const ct = res.headers.get('content-type') || '';
+      if (!res.ok) {
+        const msg = ct.includes('application/json') ? (await res.json()).error || res.statusText : await res.text();
+        throw new Error(msg || `Errore ${res.status}`);
+      }
+      return ct.includes('application/json') ? res.json() : res.text();
+    }
+
+    const form = document.getElementById('form');
+    const csvFile = document.getElementById('csvFile');
+    const dropEmpty = document.getElementById('dropEmpty');
+    const dropDuplicates = document.getElementById('dropDuplicates');
+    const outputWrap = document.getElementById('outputWrap');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const result = document.getElementById('result');
+
+    let cleanedCsvBase64 = null;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const file = csvFile.files[0];
+      if (!file) {
+        alert('Seleziona un file CSV.');
+        return;
+      }
+      outputWrap.classList.remove('hidden');
+      result.textContent = 'Elaborazione in corso...';
+
+      try {
+        const base64 = await fileToBase64(file);
+        const data = await postJSON(WEBHOOK_URL, {
+          fileName: file.name,
+          csvBase64: base64,
+          options: { dropEmpty: dropEmpty.checked, dropDuplicates: dropDuplicates.checked }
+        });
+
+        // atteso: { csvBase64: "..." }
+        cleanedCsvBase64 = data.csvBase64 || null;
+        result.innerHTML = 'CSV elaborato. <button id="downloadBtn" class="btn-small-primary ml-2">Scarica</button>';
+        // ri-attacca handler dopo innerHTML
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+          if (!cleanedCsvBase64) return;
+          const link = document.createElement('a');
+          link.href = 'data:text/csv;base64,' + cleanedCsvBase64;
+          link.download = 'fluit_cleaned.csv';
+          link.click();
+        });
+      } catch (err) {
+        result.textContent = 'Errore: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
