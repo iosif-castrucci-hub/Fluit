@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluit — Automazioni semplici, pronte all’uso</title>
+  <meta name="description" content="Fluit è un hub di micro-tool e automazioni pronte all’uso. Collega i tuoi flussi n8n e ottieni risultati in pochi secondi." />
+  <link rel="icon" href="/assets/logo.svg" />
+  <!-- Tailwind via CDN (veloce per iniziare) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body class="antialiased text-slate-900 bg-white">
+  <!-- Nav -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/logo.svg" alt="Fluit" class="h-8 w-8" />
+        <span class="font-semibold tracking-tight text-lg">Fluit</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#funzioni" class="hover:text-slate-700">Funzioni</a>
+        <a href="#come-funziona" class="hover:text-slate-700">Come funziona</a>
+        <a href="#faq" class="hover:text-slate-700">FAQ</a>
+        <a href="https://github.com/iosif-castrucci-hub/fluit" class="px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50">GitHub</a>
+      </nav>
+      <a href="#tool" class="md:hidden inline-flex items-center px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-sm">Apri tool</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+          Automazioni <span class="text-gradient">semplici</span>, pronte all’uso.
+        </h1>
+        <p class="mt-4 text-slate-600 text-lg">
+          Fluit è il tuo hub di micro-servizi e tool veloci. Connetti i tuoi flussi <strong>n8n</strong> e risolvi attività ripetitive in pochi secondi.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#tool" class="btn-primary">Prova un tool</a>
+          <a href="https://github.com/iosif-castrucci-hub/fluit" class="btn-ghost">Vedi il codice</a>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">Nessun account richiesto per i tool demo.</p>
+      </div>
+      <div class="relative">
+        <div class="demo-card">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-medium">Esempio: Riassunto di testo</div>
+            <span class="status-dot">Live</span>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">
+            Incolla un testo e ottieni un riassunto in 3 secondi. Perfetto per email, articoli e note.
+          </p>
+          <div class="mt-4 flex gap-2">
+            <a href="/tools/text-summarizer.html" class="btn-small-primary">Apri</a>
+            <a href="/tools/email-extractor.html" class="btn-small">Email Extractor</a>
+            <a href="/tools/csv-cleaner.html" class="btn-small">CSV Cleaner</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione Funzioni -->
+  <section id="funzioni" class="bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h2 class="section-title">Perché Fluit</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <div class="feature-card">
+          <div class="feature-ico">⚡</div>
+          <h3 class="feature-title">Veloce da usare</h3>
+          <p class="feature-text">Micro-tool pensati per eseguire una singola attività alla velocità della luce.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-ico">🧩</div>
+          <h3 class="feature-title">Modulare</h3>
+          <p class="feature-text">Aggiungi nuovi tool quando vuoi. Ogni scheda punta a un workflow n8n.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-ico">🔗</div>
+          <h3 class="feature-title">Webhook ready</h3>
+          <p class="feature-text">Collega i tuoi Webhook n8n con un semplice <code>fetch()</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Come funziona -->
+  <section id="come-funziona">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h2 class="section-title">Come funziona</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Scegli un tool</h3>
+          <p class="step-text">Ogni tool risolve un compito preciso: riassumere testi, estrarre email, pulire CSV.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Inserisci i dati</h3>
+          <p class="step-text">Compila il form e invia. Il tool richiama il tuo workflow n8n tramite Webhook.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Ottieni il risultato</h3>
+          <p class="step-text">Risultato immediato, pronto da copiare o scaricare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool -->
+  <section id="tool" class="bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h2 class="section-title">Tool disponibili</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <a href="/tools/text-summarizer.html" class="tool-card group">
+          <div class="tool-emoji">🧾</div>
+          <div class="tool-title">Riassunto di testo</div>
+          <p class="tool-desc">Ottieni un riassunto pulito da lunghi testi.</p>
+          <span class="tool-cta">Apri →</span>
+        </a>
+        <a href="/tools/email-extractor.html" class="tool-card group">
+          <div class="tool-emoji">📧</div>
+          <div class="tool-title">Email Extractor</div>
+          <p class="tool-desc">Estrai tutte le email da un testo o documento.</p>
+          <span class="tool-cta">Apri →</span>
+        </a>
+        <a href="/tools/csv-cleaner.html" class="tool-card group">
+          <div class="tool-emoji">📊</div>
+          <div class="tool-title">CSV Cleaner</div>
+          <p class="tool-desc">Rimuovi duplicati e righe vuote dal tuo CSV.</p>
+          <span class="tool-cta">Apri →</span>
+        </a>
+      </div>
+      <div class="text-center mt-10">
+        <a href="https://github.com/iosif-castrucci-hub/fluit/issues" class="inline-block text-sm text-slate-600 hover:text-slate-800 underline">Suggerisci un nuovo tool</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="max-w-4xl mx-auto px-4 py-16">
+      <h2 class="section-title">Domande frequenti</h2>
+      <div class="mt-8 space-y-6">
+        <details class="faq-item">
+          <summary>Devo creare un account?</summary>
+          <p>Per i tool demo no. Per tool avanzati puoi proteggere i Webhook n8n con chiavi o autenticazione.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Posso aggiungere altri tool?</summary>
+          <p>Certo. Duplica una pagina dentro <code>/tools</code>, cambia il form e collega un nuovo Webhook n8n.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Come collego n8n?</summary>
+          <p>Imposta un workflow con trigger “Webhook” in n8n. Copia l’URL nel file del tool e invia dati con <code>fetch()</code>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="/assets/logo.svg" class="h-5 w-5" alt="" />
+        <span>© <span id="year"></span> Fluit. Tutti i diritti riservati.</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-slate-700">Privacy</a>
+        <a href="#" class="hover:text-slate-700">Contatti</a>
+        <a href="https://github.com/iosif-castrucci-hub/fluit" class="hover:text-slate-700">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+</html>
