@@ -1,0 +1,84 @@
+/* Fluit — Stili addizionali (Tailwind fornisce il 90%) */
+
+.text-gradient {
+  background: linear-gradient(90deg, #1d4ed8, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  @apply inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition;
+}
+.btn-ghost {
+  @apply inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium border border-slate-200 hover:bg-slate-50;
+}
+.btn-small-primary {
+  @apply inline-flex items-center rounded-lg px-3 py-1.5 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 transition;
+}
+.btn-small {
+  @apply inline-flex items-center rounded-lg px-3 py-1.5 text-xs font-medium border border-slate-200 hover:bg-slate-50 transition;
+}
+
+.demo-card {
+  @apply rounded-2xl border border-slate-200 p-5 shadow-sm bg-white;
+}
+.status-dot {
+  @apply inline-flex items-center justify-center text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200;
+}
+
+.section-title {
+  @apply text-2xl md:text-3xl font-bold tracking-tight;
+}
+
+.feature-card {
+  @apply rounded-2xl border border-slate-200 p-6 bg-white shadow-sm;
+}
+.feature-ico {
+  @apply text-2xl;
+}
+.feature-title {
+  @apply mt-3 font-semibold;
+}
+.feature-text {
+  @apply mt-2 text-slate-600 text-sm;
+}
+
+.step-card {
+  @apply rounded-2xl border border-slate-200 p-6 bg-white shadow-sm;
+}
+.step-num {
+  @apply inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-semibold;
+}
+.step-title {
+  @apply mt-3 font-semibold;
+}
+.step-text {
+  @apply mt-2 text-slate-600 text-sm;
+}
+
+.tool-card {
+  @apply rounded-2xl border border-slate-200 p-6 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition block no-underline;
+}
+.tool-emoji {
+  @apply text-3xl;
+}
+.tool-title {
+  @apply mt-3 font-semibold text-slate-900;
+}
+.tool-desc {
+  @apply mt-1 text-slate-600 text-sm;
+}
+.tool-cta {
+  @apply mt-3 inline-block text-sm text-blue-700 group-hover:translate-x-0.5 transition;
+}
+
+.faq-item {
+  @apply rounded-xl border border-slate-200 p-4 bg-white;
+}
+.faq-item > summary {
+  @apply cursor-pointer font-medium;
+}
+.faq-item > p {
+  @apply mt-2 text-slate-600 text-sm;
+}
