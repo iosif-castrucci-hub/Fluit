@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riassunto di testo — Fluit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body class="antialiased text-slate-900 bg-white">
+  <header class="border-b border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/logo.svg" class="h-7 w-7" alt="Fluit" />
+        <span class="font-semibold">Fluit</span>
+      </a>
+      <a href="/" class="text-sm text-slate-600 hover:text-slate-800">← Torna alla home</a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold tracking-tight">Riassunto di testo</h1>
+    <p class="mt-2 text-slate-600">Incolla un testo. Il tool invierà i dati al tuo Webhook n8n e mostrerà il riassunto.</p>
+
+    <form id="form" class="mt-6 space-y-4">
+      <label class="block text-sm font-medium">Testo da riassumere</label>
+      <textarea id="inputText" class="w-full h-48 rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Incolla qui il tuo testo..."></textarea>
+
+      <div class="grid md:grid-cols-3 gap-3">
+        <div>
+          <label class="block text-sm font-medium">Lunghezza</label>
+          <select id="length" class="w-full rounded-xl border border-slate-300 p-2">
+            <option value="breve">Breve</option>
+            <option value="media" selected>Media</option>
+            <option value="dettagliata">Dettagliata</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Lingua</label>
+          <select id="lang" class="w-full rounded-xl border border-slate-300 p-2">
+            <option value="it" selected>Italiano</option>
+            <option value="en">Inglese</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary">Genera riassunto</button>
+    </form>
+
+    <div id="outputWrap" class="mt-8 hidden">
+      <h2 class="text-xl font-semibold">Risultato</h2>
+      <pre id="output" class="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4 whitespace-pre-wrap"></pre>
+    </div>
+
+    <p class="mt-6 text-xs text-slate-500">
+      Configurazione: imposta il tuo Webhook n8n dentro questo file (variabile <code>WEBHOOK_URL</code>).
+    </p>
+  </main>
+
+  <script>
+    // ⬇️ Sostituisci con il tuo Webhook n8n (Production)
+    // Esempio: const WEBHOOK_URL = 'https://tuo-n8n/webhook/summarizer';
+    const WEBHOOK_URL = 'https://example.com/webhook/summarizer';
+
+    async function postJSON(url, payload) {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const ct = res.headers.get('content-type') || '';
+      if (!res.ok) {
+        const msg = ct.includes('application/json') ? (await res.json()).error || res.statusText : await res.text();
+        throw new Error(msg || `Errore ${res.status}`);
+      }
+      return ct.includes('application/json') ? res.json() : res.text();
+    }
+
+    const form = document.getElementById('form');
+    const inputText = document.getElementById('inputText');
+    const lengthSel = document.getElementById('length');
+    const langSel = document.getElementById('lang');
+    const outputWrap = document.getElementById('outputWrap');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = inputText.value.trim();
+      if (!text) {
+        alert('Inserisci del testo.');
+        return;
+      }
+      outputWrap.classList.remove('hidden');
+      output.textContent = 'Elaborazione in corso...';
+
+      try {
+        const data = await postJSON(WEBHOOK_URL, { text, length: lengthSel.value, lang: langSel.value });
+        output.textContent = typeof data === 'string' ? data : (data.summary || JSON.stringify(data, null, 2));
+      } catch (err) {
+        output.textContent = 'Errore: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
