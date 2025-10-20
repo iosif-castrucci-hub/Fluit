@@ -35,7 +35,7 @@
       result.classList.remove("hidden");
 
       const text = form.text.value;
-      const res = await fetch("http://localhost:5678/webhook-test/text-summarizer", {
+      const res = await fetch("http://localhost:5678/webhook/text-summarizer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
