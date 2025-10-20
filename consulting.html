@@ -23,6 +23,13 @@
       @apply bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-sm transition;
     }
     .feature-ico { @apply text-3xl mb-3; }
+    .fade-enter {
+      animation: fadeIn 0.2s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
@@ -35,10 +42,32 @@
         <img src="/assets/logo.svg" alt="Fluit" class="h-7 w-7" />
         <span class="font-semibold text-lg tracking-tight">Fluit</span>
       </a>
+
+      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
         <a href="/index.html" class="hover:text-slate-700">Home</a>
         <a href="/consulenze.html" class="text-blue-600 font-semibold">Consulting</a>
+        <a href="#contact" class="hover:text-slate-700">Book</a>
         <a href="https://github.com/iosif-castrucci-hub/fluit" class="btn-ghost">GitHub</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden text-slate-700 p-2 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100">
+      <nav class="flex flex-col p-4 text-sm font-medium space-y-3">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+        <a href="/consulenze.html" class="text-blue-600 font-semibold">Consulting</a>
+        <a href="#contact" class="hover:text-blue-600">Book a session</a>
+        <a href="https://github.com/iosif-castrucci-hub/fluit" class="hover:text-blue-600">GitHub</a>
       </nav>
     </div>
   </header>
@@ -125,12 +154,23 @@
         <img src="/assets/logo.svg" class="h-5 w-5" alt="Fluit" />
         <span>© <span id="year"></span> Fluit. All rights reserved.</span>
       </div>
-      <a href="mailto:iosifcastrucci@icloud.com" class="hover:text-slate-700">hello.fluit@gmail.com</a>
+      <div class="flex items-center gap-5">
+        <a href="/index.html" class="hover:text-slate-700">Home</a>
+        <a href="mailto:iosifcastrucci@icloud.com" class="hover:text-slate-700">Contact</a>
+        <a href="https://github.com/iosif-castrucci-hub/fluit" class="hover:text-slate-700">GitHub</a>
+      </div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.add('fade-enter');
+    });
   </script>
 </body>
 </html>
+
