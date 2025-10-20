@@ -3,170 +3,168 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fluit — Simple automations, ready to use</title>
-  <meta name="description" content="Fluit is your automation hub — fast micro-tools and workflows powered by n8n, Zapier, Make and more. Automate tasks in seconds, no code required." />
+  <title>Fluit — Automate smarter, move faster</title>
+  <meta name="description" content="Fluit is the minimal automation hub for entrepreneurs. Connect n8n, Zapier, Make or Airtable — build fast, simple, no-code automations in seconds." />
   <link rel="icon" href="/assets/logo.svg" />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <!-- Modern font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .btn-primary {
+      @apply inline-flex items-center justify-center px-5 py-3 text-sm font-medium rounded-xl bg-black text-white hover:bg-slate-900 transition;
+    }
+    .btn-ghost {
+      @apply inline-flex items-center justify-center px-5 py-3 text-sm font-medium rounded-xl border border-slate-300 text-slate-800 hover:bg-slate-100 transition;
+    }
+    .section-title {
+      @apply text-2xl md:text-3xl font-semibold text-center tracking-tight text-slate-900;
+    }
+    .feature-card, .step-card, .tool-card {
+      @apply bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-sm transition;
+    }
+    .tool-card:hover { @apply border-slate-300 bg-slate-50; }
+    .feature-ico, .tool-emoji { @apply text-3xl mb-3; }
+  </style>
 </head>
-<body class="antialiased text-slate-900 bg-white">
+
+<body class="antialiased bg-white text-slate-900">
 
   <!-- Header -->
-  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+  <header class="sticky top-0 z-30 bg-white/70 backdrop-blur border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2">
-        <img src="/assets/logo.svg" alt="Fluit logo" class="h-8 w-8" />
-        <span class="font-semibold tracking-tight text-lg">Fluit</span>
+        <img src="/assets/logo.svg" alt="Fluit logo" class="h-7 w-7" />
+        <span class="font-semibold text-lg tracking-tight">Fluit</span>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-6 text-sm">
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
         <a href="#features" class="hover:text-slate-700">Features</a>
         <a href="/consulenze.html" class="hover:text-slate-700">Consulting</a>
-        <a href="#how-it-works" class="hover:text-slate-700">How it works</a>
+        <a href="#how" class="hover:text-slate-700">How it works</a>
         <a href="#faq" class="hover:text-slate-700">FAQ</a>
-        <a href="https://github.com/iosif-castrucci-hub/fluit" class="px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50">GitHub</a>
+        <a href="https://github.com/iosif-castrucci-hub/fluit" class="btn-ghost">GitHub</a>
       </nav>
 
-      <!-- Mobile Nav -->
+      <!-- Mobile -->
       <div class="md:hidden flex items-center gap-2">
-        <a href="/consulenze.html" class="inline-flex items-center px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-sm">Consulting</a>
-        <a href="#tools" class="inline-flex items-center px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-sm">Open tools</a>
+        <a href="#tools" class="btn-primary text-sm px-4 py-2">Tools</a>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
-    <div class="max-w-7xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-          <span class="text-blue-600">Simple automations</span>, ready to use.
-        </h1>
-        <p class="mt-4 text-slate-600 text-lg leading-relaxed">
-          Fluit is your hub for micro-services and instant tools.  
-          Connect your workflows from <strong>n8n</strong>, <strong>Zapier</strong>, <strong>Make</strong>, or <strong>Airtable</strong> and automate repetitive tasks in seconds — no code required.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#tools" class="btn-primary">Try a tool</a>
-          <a href="https://github.com/iosif-castrucci-hub/fluit" class="btn-ghost">View source</a>
-        </div>
-        <p class="mt-3 text-xs text-slate-500">No account required for demo tools.</p>
+  <section class="text-center px-6 py-24 md:py-32 bg-gradient-to-b from-white to-slate-50">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+        Automate <span class="text-blue-600">smarter</span>, not harder.
+      </h1>
+      <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+        Fluit helps you connect <strong>n8n</strong>, <strong>Zapier</strong>, <strong>Make</strong> or <strong>Airtable</strong> workflows effortlessly.  
+        Build powerful automations without writing code — simple, elegant, and fast.
+      </p>
+      <div class="mt-8 flex justify-center gap-3">
+        <a href="#tools" class="btn-primary">Try a Tool</a>
+        <a href="/consulenze.html" class="btn-ghost">Get Consulting</a>
       </div>
-
-      <div class="relative">
-        <div class="demo-card">
-          <div class="flex items-center justify-between">
-            <div class="text-sm font-medium">Example: Text Summarizer</div>
-            <span class="status-dot">Live</span>
-          </div>
-          <p class="mt-3 text-sm text-slate-600">
-            Paste any text and get a 3-second summary — perfect for emails, articles and notes.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <a href="/tools/text-summarizer.html" class="btn-small-primary">Open</a>
-            <a href="/tools/email-extractor.html" class="btn-small">Email Extractor</a>
-            <a href="/tools/csv-cleaner.html" class="btn-small">CSV Cleaner</a>
-          </div>
-        </div>
-      </div>
+      <p class="mt-4 text-xs text-slate-500">No sign-up needed. Try instantly.</p>
     </div>
   </section>
 
   <!-- Features -->
-  <section id="features" class="bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 py-16">
-      <h2 class="section-title text-center">Why Fluit</h2>
-      <div class="grid md:grid-cols-3 gap-6 mt-10">
+  <section id="features" class="px-6 py-20 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title">Why teams choose Fluit</h2>
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
         <div class="feature-card">
           <div class="feature-ico">⚡</div>
-          <h3 class="feature-title">Lightning fast</h3>
-          <p class="feature-text">Micro-tools built to perform one task at the speed of thought — no setup, no login.</p>
+          <h3 class="font-semibold text-lg">Instant setup</h3>
+          <p class="text-slate-600 mt-2 text-sm leading-relaxed">Launch a workflow in seconds — no accounts, no friction, pure automation.</p>
         </div>
         <div class="feature-card">
           <div class="feature-ico">🧩</div>
-          <h3 class="feature-title">Modular ecosystem</h3>
-          <p class="feature-text">Add new tools anytime. Each card can connect to a different automation platform like Zapier, Make, or n8n.</p>
+          <h3 class="font-semibold text-lg">Connect anything</h3>
+          <p class="text-slate-600 mt-2 text-sm leading-relaxed">Link APIs and Webhooks across n8n, Zapier, Make, or Airtable — with simple fetch() calls.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-ico">🔗</div>
-          <h3 class="feature-title">Webhook ready</h3>
-          <p class="feature-text">Integrate any workflow using simple <code>fetch()</code> or API calls from your favorite automation stack.</p>
+          <div class="feature-ico">🔒</div>
+          <h3 class="font-semibold text-lg">Secure by design</h3>
+          <p class="text-slate-600 mt-2 text-sm leading-relaxed">Your workflows stay private. Protect connections with keys or token-based access.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How it works -->
-  <section id="how-it-works">
-    <div class="max-w-7xl mx-auto px-4 py-16">
-      <h2 class="section-title text-center">How it works</h2>
-      <div class="grid md:grid-cols-3 gap-6 mt-10">
+  <section id="how" class="bg-slate-50 px-6 py-20">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title">How it works</h2>
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
         <div class="step-card">
-          <div class="step-num">1</div>
-          <h3 class="step-title">Choose a tool</h3>
-          <p class="step-text">Each tool solves a specific task — summarizing text, cleaning data, parsing emails, and more.</p>
+          <div class="text-blue-600 text-xl font-semibold mb-2">1</div>
+          <h3 class="font-semibold text-lg">Choose a tool</h3>
+          <p class="text-slate-600 text-sm mt-2">Each Fluit tool is crafted for one task — clean, simple, and reusable.</p>
         </div>
         <div class="step-card">
-          <div class="step-num">2</div>
-          <h3 class="step-title">Enter your data</h3>
-          <p class="step-text">Fill in the form and send it. The tool triggers your chosen automation via Webhook or API.</p>
+          <div class="text-blue-600 text-xl font-semibold mb-2">2</div>
+          <h3 class="font-semibold text-lg">Connect your workflow</h3>
+          <p class="text-slate-600 text-sm mt-2">Add your webhook or automation endpoint from n8n, Make, or Zapier.</p>
         </div>
         <div class="step-card">
-          <div class="step-num">3</div>
-          <h3 class="step-title">Get instant results</h3>
-          <p class="step-text">Your result appears in seconds — clean, simple, and ready to copy or download.</p>
+          <div class="text-blue-600 text-xl font-semibold mb-2">3</div>
+          <h3 class="font-semibold text-lg">Run and get results</h3>
+          <p class="text-slate-600 text-sm mt-2">Execute in seconds. Results appear instantly — ready to copy, share, or reuse.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Tools -->
-  <section id="tools" class="bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 py-16">
-      <h2 class="section-title text-center">Available Tools</h2>
-      <div class="grid md:grid-cols-3 gap-6 mt-10">
-        <a href="/tools/text-summarizer.html" class="tool-card group">
+  <section id="tools" class="px-6 py-20 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="section-title">Available Tools</h2>
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <a href="/tools/text-summarizer.html" class="tool-card">
           <div class="tool-emoji">🧾</div>
-          <div class="tool-title">Text Summarizer</div>
-          <p class="tool-desc">Generate clean summaries from long texts instantly.</p>
-          <span class="tool-cta">Open →</span>
+          <h3 class="font-semibold text-lg">Text Summarizer</h3>
+          <p class="text-slate-600 text-sm mt-2">Generate a clean, human-like summary from any text in seconds.</p>
         </a>
-        <a href="/tools/email-extractor.html" class="tool-card group">
+        <a href="/tools/email-extractor.html" class="tool-card">
           <div class="tool-emoji">📧</div>
-          <div class="tool-title">Email Extractor</div>
-          <p class="tool-desc">Extract all email addresses from any text or document.</p>
-          <span class="tool-cta">Open →</span>
+          <h3 class="font-semibold text-lg">Email Extractor</h3>
+          <p class="text-slate-600 text-sm mt-2">Find and collect all email addresses from any text or document.</p>
         </a>
-        <a href="/tools/csv-cleaner.html" class="tool-card group">
+        <a href="/tools/csv-cleaner.html" class="tool-card">
           <div class="tool-emoji">📊</div>
-          <div class="tool-title">CSV Cleaner</div>
-          <p class="tool-desc">Remove duplicates and blank rows from CSV files in one click.</p>
-          <span class="tool-cta">Open →</span>
+          <h3 class="font-semibold text-lg">CSV Cleaner</h3>
+          <p class="text-slate-600 text-sm mt-2">Remove duplicates and blank rows from your CSV — instantly.</p>
         </a>
       </div>
-      <div class="text-center mt-10">
-        <a href="https://github.com/iosif-castrucci-hub/fluit/issues" class="inline-block text-sm text-slate-600 hover:text-slate-800 underline">Suggest a new tool</a>
-      </div>
+      <p class="text-center text-sm text-slate-500 mt-10">Want to suggest a new tool?  
+        <a href="https://github.com/iosif-castrucci-hub/fluit/issues" class="underline hover:text-slate-700">Open a GitHub issue</a>.
+      </p>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq">
-    <div class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="section-title text-center">Frequently Asked Questions</h2>
-      <div class="mt-8 space-y-6">
-        <details class="faq-item">
-          <summary>Do I need to create an account?</summary>
-          <p>No — demo tools work instantly. For private workflows, secure them with authentication or secret keys.</p>
+  <section id="faq" class="bg-slate-50 px-6 py-20">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="section-title">FAQs</h2>
+      <div class="mt-10 space-y-6">
+        <details class="border border-slate-200 rounded-xl p-4 bg-white">
+          <summary class="font-medium cursor-pointer">Do I need an account?</summary>
+          <p class="mt-2 text-sm text-slate-600">No. Demo tools work instantly. You can secure private automations with API keys.</p>
         </details>
-        <details class="faq-item">
-          <summary>Can I add my own tools?</summary>
-          <p>Yes! Duplicate a file inside <code>/tools</code>, change the form endpoint, and connect a new automation flow (n8n, Zapier, or Make).</p>
+        <details class="border border-slate-200 rounded-xl p-4 bg-white">
+          <summary class="font-medium cursor-pointer">Can I add my own tools?</summary>
+          <p class="mt-2 text-sm text-slate-600">Yes — duplicate a tool inside <code>/tools</code> and connect your preferred automation platform.</p>
         </details>
-        <details class="faq-item">
-          <summary>Which platforms does Fluit support?</summary>
-          <p>Fluit works with any automation platform — including n8n, Zapier, Make (Integromat), Pabbly, and Airtable Automations.</p>
+        <details class="border border-slate-200 rounded-xl p-4 bg-white">
+          <summary class="font-medium cursor-pointer">Which platforms are supported?</summary>
+          <p class="mt-2 text-sm text-slate-600">Fluit integrates with n8n, Zapier, Make (Integromat), Pabbly, Airtable and more.</p>
         </details>
       </div>
     </div>
@@ -174,15 +172,15 @@
 
   <!-- Footer -->
   <footer class="border-t border-slate-100 bg-white">
-    <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
         <img src="/assets/logo.svg" class="h-5 w-5" alt="Fluit" />
         <span>© <span id="year"></span> Fluit. All rights reserved.</span>
       </div>
       <div class="flex items-center gap-5">
-        <a href="#" class="hover:text-slate-700">Privacy</a>
         <a href="/consulenze.html" class="hover:text-slate-700">Consulting</a>
         <a href="mailto:hello.fluit@gmail.com" class="hover:text-slate-700">Contact</a>
+        <a href="https://github.com/iosif-castrucci-hub/fluit" class="hover:text-slate-700">GitHub</a>
       </div>
     </div>
   </footer>
