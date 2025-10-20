@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1-to-1 Consulting — Fluit</title>
+  <meta name="description" content="Book a 1-to-1 consulting session to automate and scale your business. Tailored strategies, no-code workflows, and actionable results." />
+  <link rel="icon" href="/assets/logo.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .btn-primary {
+      @apply inline-flex items-center justify-center px-5 py-3 text-sm font-medium rounded-xl bg-black text-white hover:bg-slate-900 transition;
+    }
+    .btn-ghost {
+      @apply inline-flex items-center justify-center px-5 py-3 text-sm font-medium rounded-xl border border-slate-300 text-slate-800 hover:bg-slate-100 transition;
+    }
+    .section-title {
+      @apply text-2xl md:text-3xl font-semibold text-center tracking-tight text-slate-900;
+    }
+    .feature-card {
+      @apply bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-sm transition;
+    }
+    .feature-ico { @apply text-3xl mb-3; }
+  </style>
+</head>
+
+<body class="antialiased text-slate-900 bg-white">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/70 backdrop-blur border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/logo.svg" alt="Fluit" class="h-7 w-7" />
+        <span class="font-semibold text-lg tracking-tight">Fluit</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="/index.html" class="hover:text-slate-700">Home</a>
+        <a href="/consulenze.html" class="text-blue-600 font-semibold">Consulting</a>
+        <a href="https://github.com/iosif-castrucci-hub/fluit" class="btn-ghost">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-blue-600 to-indigo-500 text-white text-center px-6 py-24 md:py-32">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        1-to-1 Consulting for entrepreneurs and small teams
+      </h1>
+      <p class="mt-5 text-lg text-blue-100 leading-relaxed">
+        I help businesses automate workflows, simplify operations, and scale efficiently using no-code tools like n8n, Zapier, and Make.
+      </p>
+      <a href="#contact" class="mt-8 inline-block btn-primary bg-white text-blue-700 hover:bg-blue-50 font-semibold">Book your session</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="max-w-6xl mx-auto px-4 py-20">
+    <h2 class="section-title">What you’ll get from a Fluit consulting session</h2>
+    <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <div class="feature-card text-center">
+        <div class="feature-ico">🤝</div>
+        <h3 class="font-semibold text-lg">Personalized strategy</h3>
+        <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+          Together, we’ll analyze your business processes and identify automation opportunities that save time and reduce costs.
+        </p>
+      </div>
+      <div class="feature-card text-center">
+        <div class="feature-ico">⚙️</div>
+        <h3 class="font-semibold text-lg">No-code solutions</h3>
+        <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+          Learn how to use platforms like n8n, Make, or Airtable Automations to automate daily tasks — without coding.
+        </p>
+      </div>
+      <div class="feature-card text-center">
+        <div class="feature-ico">🚀</div>
+        <h3 class="font-semibold text-lg">Immediate results</h3>
+        <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+          After our 1-to-1 session, you’ll receive a clear action plan and ready-to-use tools to implement right away.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 py-20">
+      <h2 class="section-title">Book your free consultation</h2>
+      <p class="text-center text-slate-600 max-w-xl mx-auto mt-3">
+        Fill out the form and you’ll be contacted within 24 hours to schedule a free intro call.
+      </p>
+
+      <form action="https://formspree.io/f/mqayjryg" method="POST" class="mt-10 space-y-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <div>
+          <label class="block text-sm font-medium">Full Name</label>
+          <input type="text" name="name" required class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="John Doe" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Email</label>
+          <input type="email" name="email" required class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="hello@yourcompany.com" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Company (optional)</label>
+          <input type="text" name="company" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Your company name" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Message</label>
+          <textarea name="message" rows="5" required class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Tell me briefly about your goals..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full">Send Request</button>
+      </form>
+
+      <p class="mt-4 text-xs text-center text-slate-500">
+        By submitting this form, you agree to be contacted via email for scheduling and consulting information.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="/assets/logo.svg" class="h-5 w-5" alt="Fluit" />
+        <span>© <span id="year"></span> Fluit. All rights reserved.</span>
+      </div>
+      <a href="mailto:iosifcastrucci@icloud.com" class="hover:text-slate-700">hello.fluit@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
